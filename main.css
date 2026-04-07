@@ -1,64 +1,71 @@
-/* Существующие стили остаются, добавляем новые */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
-/* Анимация логотипа */
-.logo-container {
-    position: relative;
-    display: inline-block;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
 }
 
-.logo-animation {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding-bottom: 100px;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
+.header {
+    background: linear-gradient(135deg, #6e1296 0%, #9d3cc7 100%);
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 42px;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 10px;
 }
 
 .logo strong {
-    animation: pulse 2s ease-in-out infinite;
+    font-weight: 700;
+    color: #d799f2;
 }
 
-/* Панель статистики */
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
 .stats-panel {
     display: flex;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
 .stat-item {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
     border-radius: 20px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-.stat-item:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
+    gap: 8px;
+    color: white;
+    font-size: 14px;
 }
 
 .stat-icon {
-    font-size: 20px;
+    font-size: 18px;
 }
 
-/* Трекер прогресса */
 .progress-tracker {
     background: linear-gradient(135deg, #6e1296 0%, #9d3cc7 100%);
     padding: 25px;
@@ -89,11 +96,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
 }
 
 .progress-text {
     color: white;
+    font-weight: bold;
     font-size: 14px;
 }
 
@@ -108,26 +115,88 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     padding: 8px 16px;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 12px;
-    transition: all 0.3s ease;
+    font-size: 14px;
 }
 
 .reset-progress:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Бейджи */
+.main-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.collapsible {
+    background: linear-gradient(135deg, #6e1296 0%, #9d3cc7 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 20px 25px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(110, 18, 150, 0.3);
+}
+
+.collapsible:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(110, 18, 150, 0.4);
+}
+
+.collapsible.active {
+    background: linear-gradient(135deg, #9d3cc7 0%, #d799f2 100%);
+}
+
+.collapsible-icon {
+    font-size: 24px;
+}
+
 .badge {
     background: rgba(255, 255, 255, 0.2);
-    padding: 4px 12px;
+    padding: 5px 12px;
     border-radius: 12px;
     font-size: 12px;
     margin-left: auto;
 }
 
-/* Номера заданий */
+.collapsible.box {
+    background: white;
+    border: 2px solid #d799f2;
+    color: #6e1296;
+    padding: 15px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(110, 18, 150, 0.1);
+}
+
+.collapsible.box:hover {
+    background: #f8f0fc;
+    border-color: #9d3cc7;
+    transform: translateX(5px);
+}
+
+.collapsible.box.active {
+    background: linear-gradient(135deg, #d799f2 0%, #9d3cc7 100%);
+    color: white;
+    border-color: #9d3cc7;
+}
+
 .task-number {
     display: inline-flex;
     align-items: center;
@@ -139,6 +208,7 @@
     border-radius: 50%;
     margin-right: 10px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .collapsible.box.active .task-number {
@@ -146,12 +216,80 @@
     color: #6e1296;
 }
 
-/* Индикаторы просмотра */
 .watched-indicator {
     display: none;
     color: #4CAF50;
     font-size: 20px;
     margin-left: auto;
+}
+
+.collapsible.box.watched .watched-indicator {
+    display: inline;
+}
+
+.contentMain {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: #f9f9f9;
+    border-radius: 0 0 12px 12px;
+}
+
+.contentBox {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: white;
+}
+
+.tasks-grid {
+    padding: 20px;
+}
+
+.variants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-title {
+    padding: 15px;
+    font-weight: 600;
+    color: #6e1296;
+    text-align: center;
+    background: #f8f0fc;
+    margin: 0;
 }
 
 .watched-indicator-card {
@@ -160,26 +298,21 @@
     right: 10px;
     background: #4CAF50;
     color: white;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: none;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
-.video-card {
-    position: relative;
-}
-
-.video-card.watched .watched-indicator-card,
-.collapsible.box.watched .watched-indicator {
+.video-card.watched .watched-indicator-card {
     display: flex;
 }
 
-/* Контролы видео */
 .video-controls {
     padding: 15px;
     display: flex;
@@ -232,12 +365,6 @@
     color: white;
 }
 
-.check-icon,
-.note-icon {
-    font-size: 16px;
-}
-
-/* Модальное окно */
 .modal {
     display: none;
     position: fixed;
@@ -247,34 +374,16 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
     background-color: white;
-    margin: 5% auto;
+    margin: 10% auto;
     padding: 30px;
     border-radius: 15px;
     width: 90%;
     max-width: 600px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .close {
@@ -283,7 +392,6 @@
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .close:hover {
@@ -293,6 +401,7 @@
 .modal-content h2 {
     color: #6e1296;
     margin-bottom: 20px;
+    clear: both;
 }
 
 #noteText {
@@ -321,7 +430,6 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    transition: all 0.3s ease;
 }
 
 .modal-content button:hover {
@@ -341,7 +449,6 @@
     display: block;
 }
 
-/* Уведомления */
 .notification {
     position: fixed;
     top: 20px;
@@ -361,10 +468,9 @@
     transform: translateX(0);
 }
 
-/* Кнопка "Наверх" */
 .scroll-to-top {
     position: fixed;
-    bottom: 100px;
+    bottom: 120px;
     right: 20px;
     width: 50px;
     height: 50px;
@@ -388,13 +494,11 @@
 
 .scroll-to-top:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(110, 18, 150, 0.4);
 }
 
-/* Переключатель темы */
 .theme-toggle {
     position: fixed;
-    bottom: 160px;
+    bottom: 180px;
     right: 20px;
     width: 50px;
     height: 50px;
@@ -411,10 +515,8 @@
 
 .theme-toggle:hover {
     transform: rotate(20deg) scale(1.1);
-    box-shadow: 0 6px 20px rgba(110, 18, 150, 0.4);
 }
 
-/* Темная тема */
 body.dark-theme {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
@@ -462,15 +564,53 @@ body.dark-theme .saved-note {
     background: #1a1a2e;
 }
 
-/* Адаптивность */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #3b0752 0%, #6e1296 100%);
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 12px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+    margin: 3px 0;
+    opacity: 0.9;
+}
+
 @media (max-width: 768px) {
+    .logo {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
     .stats-panel {
-        gap: 10px;
+        gap: 8px;
     }
 
     .stat-item {
         font-size: 12px;
         padding: 8px 12px;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .collapsible {
+        font-size: 16px;
+        padding: 15px 20px;
+    }
+
+    .variants-grid {
+        grid-template-columns: 1fr;
     }
 
     .scroll-to-top,
@@ -480,8 +620,11 @@ body.dark-theme .saved-note {
         font-size: 20px;
     }
 
-    .modal-content {
-        margin: 10% auto;
-        padding: 20px;
+    .theme-toggle {
+        bottom: 160px;
+    }
+
+    .scroll-to-top {
+        bottom: 100px;
     }
 }
