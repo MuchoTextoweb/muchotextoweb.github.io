@@ -38,8 +38,19 @@ function updateProgress() {
     const total = 14;
     const percentage = Math.round((watched.length / total) * 100);
     
-    document.getElementById('studyProgress').style.width = percentage + '%';
-    document.querySelector('.progress-text').textContent = percentage + '%';
+    const progressBar = document.getElementById('studyProgress');
+    const progressText = document.querySelector('.progress-text');
+    
+    progressBar.style.width = percentage + '%';
+    progressText.textContent = percentage + '%';
+    
+    // Показываем текст только если процент больше 0
+    if (percentage > 0) {
+        progressText.style.opacity = '1';
+    } else {
+        progressText.style.opacity = '0';
+    }
+    
     document.getElementById('watchedCount').textContent = watched.length;
     
     // Обновляем индикаторы
@@ -47,7 +58,7 @@ function updateProgress() {
         const button = document.querySelector(`[data-task="${taskId}"]`);
         if (button) {
             button.classList.add('watched');
-            const markButton = button.parentElement.querySelector('.mark-watched');
+            const markButton = button.parentElement?.querySelector('.mark-watched');
             if (markButton) {
                 markButton.classList.add('active');
                 markButton.innerHTML = '<span class="check-icon">✓</span> Просмотрено';
